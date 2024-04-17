@@ -1,6 +1,6 @@
 # firstProject
 
-Final for Principles of Computing with Java class (Fitness Center Industry - HighVoltage Fitness Center) - First semester (Spring 2023)
+Final for Principles of Computing with Java class (Fitness Center Industry - HighVoltage Fitness Center) - First Semester (Spring 2023)
 
 Start Date: May 4, 2023 6:00 PM
 
