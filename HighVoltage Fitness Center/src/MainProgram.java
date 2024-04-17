@@ -183,10 +183,21 @@ class Customer {
     public void setID(String first, String last) {  
         final int ID_LENGTH = 7; 
         int randomNum = (int)Math.floor(Math.random() * Math.pow(10,ID_LENGTH-1)); 
-        String padStr = "0"; 
-        int padLength = ID_LENGTH - String.valueOf(randomNum).length();         
+
+        //String padStr = "0"; 
+        //int padLength = ID_LENGTH - String.valueOf(randomNum).length();         
+
         StringBuilder paddedString = new StringBuilder(); 
-        paddedString.append(padStr.repeat(padLength)); 
+
+        //paddedString.append(padStr.repeat(padLength));   // doesn't work on versions under Java 11 (JDK/JRE)
+
+        String padStr = "0";
+
+        for (int index = 0; index < ID_LENGTH - String.valueOf(randomNum).length(); index++) {
+           paddedString.append(padStr);
+        }
+
+
         paddedString.append(String.valueOf(randomNum)); 
         this.id = first.charAt(0) + last.charAt(0) + paddedString.toString(); 
     } 
@@ -1133,9 +1144,12 @@ else {
         }  
    
    
-        if (option == 9) System.out.println(">>> Thank you for using HighVoltage Fitness Center’s customer tracking system.  Goodbye!");  // Print this if user inputs 9 (exit)  
+        if (option == 9) {    // Print this if user inputs 9 (exit)
+            System.out.println(">>> Thank you for using HighVoltage Fitness Center’s customer tracking system.");  
+            System.out.println("    Goodbye!");
+        }
    
-   
+        scnr.close();
    
     }  
     
