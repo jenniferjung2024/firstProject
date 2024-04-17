@@ -84,3 +84,10 @@ Please be sure to comment your code so I can read and understand what you are do
         a. create a method or methods to display:
             i. Total amount of services for all customers, broken down by paid and unpaid
             ii. Outstanding total of all unpaid service, regardless of customer.
+
+----
+
+![image(2)](https://github.com/jenniferjung2024/firstProject/assets/164530692/ee044e0e-83b8-4cdb-9066-e584458317d8)
+
+![image(3)](https://github.com/jenniferjung2024/firstProject/assets/164530692/49098e64-a7b5-47af-a930-52ff6c7fa25d)
+
