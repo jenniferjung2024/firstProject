@@ -87,7 +87,11 @@ Please be sure to comment your code so I can read and understand what you are do
 
 ----
 
+
 ![image(2)](https://github.com/jenniferjung2024/firstProject/assets/164530692/ee044e0e-83b8-4cdb-9066-e584458317d8)
 
-![image(3)](https://github.com/jenniferjung2024/firstProject/assets/164530692/49098e64-a7b5-47af-a930-52ff6c7fa25d)
+----
+
+![image](https://github.com/jenniferjung2024/firstProject/assets/164530692/7854471f-f54a-44c2-83b7-cbf39bcecc48)
+
 
