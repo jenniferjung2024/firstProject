@@ -94,4 +94,6 @@ Please be sure to comment your code so I can read and understand what you are do
 
 ![image](https://github.com/jenniferjung2024/firstProject/assets/164530692/7854471f-f54a-44c2-83b7-cbf39bcecc48)
 
+----
 
+Added to GitHub and continue to improve formatting
