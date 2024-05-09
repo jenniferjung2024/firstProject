@@ -64,7 +64,6 @@ class Service {
     }
 
 
-
     // Change paid status to true
     public void setPaidToTrue() {
         paid = true;
@@ -142,7 +141,6 @@ class Service {
         return cost4;
     }
 
-
 }
 
 
@@ -158,7 +156,7 @@ class Customer {
         setID(first,last);
     }
 
-
+    
     // Return customer name
     public String getName() {
         return firstName + " " + lastName;
@@ -196,11 +194,9 @@ class Customer {
             paddedString.append(padStr);
         }
 
-
         paddedString.append(String.valueOf(randomNum));
         this.id = first.charAt(0) + last.charAt(0) + paddedString.toString();
     }
-
 
 
     private ArrayList<Service> serviceList = new ArrayList<>(10);  // Create an ArrayList of services with a maximum of 10 services
@@ -210,7 +206,6 @@ class Customer {
         return serviceList.size();
     }
 
-
     // Add services
 
     public void addService1(boolean paidStatus) {
@@ -219,13 +214,11 @@ class Customer {
         serviceList.add(newService);
     }
 
-
     public void addService2(boolean paidStatus) {
         Service newService = new Service();
         newService.setService2(paidStatus);
         serviceList.add(newService);
     }
-
 
     public void addService3(boolean paidStatus) {
         Service newService = new Service();
@@ -233,47 +226,38 @@ class Customer {
         serviceList.add(newService);
     }
 
-
     public void addService4(boolean paidStatus) {
         Service newService = new Service();
         newService.setService4(paidStatus);
         serviceList.add(newService);
     }
 
-
     // Set paid variable for a specific service to true
     public void setAsPaid(int userInput) {
         serviceList.get(userInput - 1).setPaidToTrue();
     }
-
 
     // Re-set paid variable for a specific service to false in case of an error
     public void resetToNotPaid(int userInput) {
         serviceList.get(userInput - 1).setPaidToFalse();
     }
 
-
     // Return a specific name of a service
     public String getNameOfService(int userInput) {
         return serviceList.get(userInput - 1).getServiceName();
     }
-
 
     // Return a specific cost of a service
     public double getCostOfService(int userInput) {
         return serviceList.get(userInput - 1).getCost();
     }
 
-
     // Return a specific paid status of a service
     public boolean getStatusOfPayment(int userInput) {
         return serviceList.get(userInput - 1).getPaidStatus();
     }
 
-
-
 }
-
 
 
 class CustomerList {
@@ -288,7 +272,6 @@ class CustomerList {
         customerList.add(newCustomer);
     }
 
-
     public void showAllCustomers() {
         // Output whitespaces before list
         System.out.println();
@@ -298,15 +281,12 @@ class CustomerList {
             int numOnList = i + 1;  // Declared a variable to hold the value of the number on the customer list, since i is the index and is set to 0
 
             System.out.printf("%2d.) Customer %s: %s\n", numOnList, customerList.get(i).getID(), customerList.get(i).getName());  // Adjusted the print statement to have the variable numOnList instead of the index AND added a period after the number
-
         }
+        
         // Output whitespaces after list
         System.out.println();
         System.out.println();
-
     }
-
-
 
 
     // Create a new method in the CustomerList class that returns the customer name
@@ -316,8 +296,6 @@ class CustomerList {
         return customerName;
     }
 
-
-
     // Create a new method in the CustomerList class that returns the customer ID
     public String getCustomerID(int selectedCustomerNumber) {
         String customerID;  // Declare a variable to hold the selected customer ID
@@ -325,12 +303,10 @@ class CustomerList {
         return customerID;
     }
 
-
     // Return size of specific customer’s service list
     public int getCustomerServiceListSize (int userSelectedNumber) {
         return customerList.get(userSelectedNumber - 1).getServiceListSize();
     }
-
 
     // Print out a complete list of services for the customer
     public void showAllServices(int userSelectedNumber) {
@@ -347,66 +323,48 @@ class CustomerList {
             System.out.printf("      Cost: %.2f\n", customerList.get(userSelectedNumber - 1).getCostOfService(i + 1));
             System.out.print("      Paid: ");
 
-            if (customerList.get(userSelectedNumber - 1).getStatusOfPayment(i + 1) == true) {
+            if (customerList.get(userSelectedNumber - 1).getStatusOfPayment(i + 1) == true) 
                 System.out.println("Yes");
-            }
-
-
-            else {
+            else 
                 System.out.println("No");
             }
-
-        }
 
         // Print space after output
         System.out.println();
         System.out.println();
-
     }
-
-
 
     // Add service1 to specific customer
     public void addService1ToCustomer(int userSelectedNumber, boolean paidYN) {
         customerList.get(userSelectedNumber - 1).addService1(paidYN);
     }
 
-
     // Add service2 to specific customer
     public void addService2ToCustomer(int userSelectedNumber, boolean paidYN) {
         customerList.get(userSelectedNumber - 1).addService2(paidYN);
     }
-
 
     // Add service3 to specific customer
     public void addService3ToCustomer(int userSelectedNumber, boolean paidYN) {
         customerList.get(userSelectedNumber - 1).addService3(paidYN);
     }
 
-
     // Add service4 to specific customer
     public void addService4ToCustomer(int userSelectedNumber, boolean paidYN) {
         customerList.get(userSelectedNumber - 1).addService4(paidYN);
     }
 
-
     // Set paid variable for a specific service for a particular customer in the ArrayList to true
     public void setSelectedServiceToPaid(int selectedCustomerNumber, int selectedServiceNumber) {
-
         int j = 1;
 
         for (int i = 0; i < customerList.get(selectedCustomerNumber - 1).getServiceListSize(); ++i) {
-
             while (customerList.get(selectedCustomerNumber - 1).getStatusOfPayment(i + 1) == false) {
-
                 if (j == selectedServiceNumber) {
-
-                    customerList.get(selectedCustomerNumber - 1).setAsPaid(i + 1);
+                   customerList.get(selectedCustomerNumber - 1).setAsPaid(i + 1);
                 }
                 ++j;
-
             }
-
         }
 
     }
@@ -417,18 +375,12 @@ class CustomerList {
         int j = 1;
 
         for (int i = 0; i < customerList.get(selectedCustomerNumber - 1).getServiceListSize(); ++i) {
-
             while (customerList.get(selectedCustomerNumber - 1).getStatusOfPayment(i + 1) == false) {
-
                 if (j == selectedServiceNumber) {
                     customerList.get(selectedCustomerNumber - 1).setAsPaid(i + 1);
-
                 }
-
                 ++j;
-
             }
-
         }
 
     }
@@ -440,12 +392,11 @@ class CustomerList {
         int countUnpaid = 0;  // Declared a variable to hold the count of unpaid services
 
         for (int i = 0; i < customerList.get(userSelectedNumber - 1).getServiceListSize(); ++i) {
-
             if (customerList.get(userSelectedNumber - 1).getStatusOfPayment(i + 1) == false) {
                 ++countUnpaid;
             }
         }
-
+        
         return countUnpaid;
     }
 
@@ -478,49 +429,41 @@ class CustomerList {
     }
 
 
-
+    
     // Return total amount of unpaid services
     public double calcTotalUnpaid() {
         double totalUnpaid = 0.00;
 
         for (int i = 0; i < customerList.size(); ++i) {
-
             for (int j = 0; j < customerList.get(i).getServiceListSize(); ++j) {
                 if (customerList.get(i).getStatusOfPayment(j + 1) == false) {
                     totalUnpaid = totalUnpaid + customerList.get(i).getCostOfService(j + 1);
                 }
-
             }
-
         }
-
+        
         return totalUnpaid;
 
     }
 
+    
     // Return total amount of paid services
     public double calcTotalPaid() {
         double totalPaid = 0.00;
 
         for (int i = 0; i < customerList.size(); ++i) {
-
             for (int j = 0; j < customerList.get(i).getServiceListSize(); ++j) {
                 if (customerList.get(i).getStatusOfPayment(j + 1) == true) {
                     totalPaid = totalPaid + customerList.get(i).getCostOfService(j + 1);
                 }
-
             }
-
         }
 
         return totalPaid;
 
     }
 
-
-
 }
-
 
 
 
@@ -534,10 +477,7 @@ public class MainProgram {
         System.out.println("  4: View Statistics");
         System.out.println("  9: Exit\n");
         System.out.print("Enter option number: ");
-
     }
-
-
 
     public static void serviceMenu() {    // Create a method to display current services for a specific customer
         System.out.println("  1: Display Current Services");
@@ -545,10 +485,7 @@ public class MainProgram {
         System.out.println("  3: Pay for Service");
         System.out.println("  9: Back to HighVoltage Fitness Center Main Menu\n");
         System.out.print("Selection: ");
-
     }
-
-
 
     public static void serviceList() {    // Create a method to display the list of available services for customers to chose from
         System.out.println("\nAvailable Services\n");
@@ -561,10 +498,7 @@ public class MainProgram {
         System.out.println("  4: " + Service.getService4Name());
         System.out.printf("      Cost: $%.2f\n\n\n", + Service.getService4Cost());
         System.out.print("Type number to add service: ");
-
     }
-
-
 
     public static void statisticsMenu() {    // Create a method to display a list of stats for all customers that the user can choose from
         System.out.println("\n\n\nStatistics Menu\n");
@@ -572,10 +506,7 @@ public class MainProgram {
         System.out.println("  2: Outstanding Total of All Unpaid Services for HighVoltage Fitness Center");
         System.out.println("  9: Back to HighVoltage Fitness Center Main Menu\n");
         System.out.print("Selection: ");
-
     }
-
-
 
     public static String createConfirmationNum() {  // Create a new confirmation number
         final int SIZE = 20;
@@ -598,8 +529,6 @@ public class MainProgram {
     }
 
 
-
-
     public static void main(String[] args) {
 
         Scanner scnr = new Scanner(System.in);
@@ -611,44 +540,32 @@ public class MainProgram {
 
         option = scnr.nextInt();  // Look for input
 
-
         while (option != 9) {  // Execute state machine loop if the user does not input 9
 
             if (option == 1) {  // Execute only if user selects option 1
                 if (customers.getCustomerSize() == 0) {
                     System.out.println(">>> No customers in the system\n\n");  // Print this statement only if there is nothing in the ArrayList
                 }
-
                 else {
                     customers.showAllCustomers(); // Call method in customerList class to print the customer IDs and names of all customers in the ArrayList – as long as there is at least one customer in the ArrayList
-
                 }
-
             }
-
-
             else if (option == 2) { // Execute only if user selects option 2
                 System.out.print("Enter first name of new customer: ");
 
                 scnr.nextLine();  // Clear the scanner to get ready for the next input of name (in case the customer has more than one word in either the first name or the last name)
 
-
                 String firstName = scnr.nextLine();  // Declare a new variable to hold the first name of the customer and set it to the user input from the keyboard
-
 
                 boolean isLetter = true;  // Declare a new variable to store the boolean value that holds whether or not a String has all letters in it and set it to true
 
                 for (int i = 0; i < firstName.length(); ++i) {
-
                     if (!Character.isLetter(firstName.charAt(i)) && firstName.charAt(i) != ' ') {
-
                         isLetter = false;
                     }
                 }
 
-
                 while (isLetter == false) {
-
                     System.out.print("\n\n Invalid first name.  Type first name again: ");
 
                     firstName = scnr.nextLine();  // Read user input from scanner
@@ -656,16 +573,11 @@ public class MainProgram {
                     isLetter = true;  // Reset isLetter value
 
                     for (int i = 0; i < firstName.length(); ++i) {
-
                         if (!Character.isLetter(firstName.charAt(i)) && firstName.charAt(i) != ' ') {
-
                             isLetter = false;
                         }
                     }
                 }
-
-
-
 
                 System.out.println(); // Add whitespaces for clarity in output
 
@@ -673,18 +585,13 @@ public class MainProgram {
 
                 String lastName = scnr.nextLine();  // Declare a new variable to hold the last name of the customer and set it to the user input from the keyboard
 
-
                 for (int i = 0; i < lastName.length(); ++i) {
-
                     if (!Character.isLetter(lastName.charAt(i)) && lastName.charAt(i) != ' ') {
-
                         isLetter = false;
                     }
                 }
 
-
                 while (isLetter == false) {
-
                     System.out.print("\n\n Invalid last name.  Type last name again: ");
 
                     lastName = scnr.nextLine();  // Read user input from scanner
@@ -692,33 +599,23 @@ public class MainProgram {
                     isLetter = true;  // Reset isLetter value
 
                     for (int i = 0; i < lastName.length(); ++i) {
-
                         if (!Character.isLetter(lastName.charAt(i)) && lastName.charAt(i) != ' ') {
-
                             isLetter = false;
                         }
                     }
                 }
 
-
                 customers.addCustomer(firstName, lastName); // Call method in customerList class to add a new customer
 
                 System.out.println("\n\n>>> Entry added.");
-
-
             }
-
-
             else if (option == 3) { // Execute only if user selects option 3
-
 
                 if (customers.getCustomerSize() == 0) {
                     System.out.println(">>> No customers in the system\n\n");  // Print this statement only if there is nothing in the ArrayList
                 }
-
                 else {
                     customers.showAllCustomers();  // Display customer list by calling on the method for the customers object in the CustomerList class
-
 
                     System.out.print("Enter customer number: ");  // Output instructions
 
@@ -728,14 +625,11 @@ public class MainProgram {
                     System.out.println();
                     System.out.println();
 
-
                     // Print out specific customer name and ID by calling on two methods in the CustomerList class and output with appropriate white spaces
                     System.out.println("Name: " + customers.getCustomerName(selectedCustomerNumber));
                     System.out.println("ID: " + customers.getCustomerID(selectedCustomerNumber) + "\n\n");
 
-
                     System.out.println("Customer Service Menu for " +   customers.getCustomerName(selectedCustomerNumber) + ":\n");  // Output the title to the customer service menu based on the selection from the user
-
 
                     serviceMenu();  // Call serviceMenu method to output the service menu on the screen
 
@@ -745,22 +639,18 @@ public class MainProgram {
 
                     boolean paid;  // Declare a new variable called paid to hold the boolean value of whether the service has been paid or not
 
-
                     while (selection != 9) {
 
                         if (selection == 1) {
-// Print the below if there are no items in the ServiceList ArrayList
+                            
+                            // Print the below if there are no items in the ServiceList ArrayList
                             if (customers.getCustomerServiceListSize(selectedCustomerNumber) == 0) {
                                 System.out.println("\n\n>>> Customer has no service.\n\n");
                             }
-
                             else {
                                 customers.showAllServices(selectedCustomerNumber);
                             }
-
                         }
-
-
                         else if (selection == 2) {
                             //Add whitespace between user input and output
                             System.out.println();
@@ -782,33 +672,23 @@ public class MainProgram {
                                     paid = true;
                                     customers.addService1ToCustomer(selectedCustomerNumber, paid);
                                     System.out.println("\n\n>>> Entry added. <<<");
-
                                 }
-
                                 else if (yesNo == 'N' || yesNo == 'n') {
                                     paid = false;
                                     customers.addService1ToCustomer(selectedCustomerNumber, paid);
-
                                     System.out.println("\n\n>>> Entry added. <<<");
                                 }
-
                                 else {
                                     System.out.println("\n\n>>> Invalid entry.  Paid at time of check-out?  Enter 'Y' for Yes and 'N' for No: ");
-
                                     yesNo = scnr.next().charAt(0);
                                 }
-
 
                                 // Add whitespace
                                 System.out.println();
                                 System.out.println();
-
-
                             }
-
 
                             else if (addServiceInput == 2) {
-
                                 System.out.println();  // Print whitespace between user input and output
 
                                 System.out.print(">>> Paid at time of check-out?  Enter 'Y' for Yes and 'N' for No: ");
@@ -819,34 +699,22 @@ public class MainProgram {
                                     paid = true;
                                     customers.addService2ToCustomer(selectedCustomerNumber, paid);
                                     System.out.println("\n\n>>> Entry added. <<<");
-
                                 }
-
                                 else if (yesNo == 'N' || yesNo == 'n') {
                                     paid = false;
                                     customers.addService2ToCustomer(selectedCustomerNumber, paid);
-
                                     System.out.println("\n\n>>> Entry added. <<<");
                                 }
-
                                 else {
                                     System.out.println("\n\n>>> Invalid entry.  Paid at time of check-out?  Enter 'Y' for Yes and 'N' for No: ");
-
                                     yesNo = scnr.next().charAt(0);
                                 }
-
 
                                 // Add whitespace
                                 System.out.println();
                                 System.out.println();
-
                             }
-
-
-
                             else if (addServiceInput == 3) {
-
-
                                 System.out.println();  // Print whitespace between user input and output
 
                                 System.out.print(">>> Paid at time of check-out?  Enter 'Y' for Yes and 'N' for No: ");
@@ -857,34 +725,22 @@ public class MainProgram {
                                     paid = true;
                                     customers.addService3ToCustomer(selectedCustomerNumber, paid);
                                     System.out.println("\n\n>>> Entry added. <<<");
-
                                 }
-
                                 else if (yesNo == 'N' || yesNo == 'n') {
                                     paid = false;
                                     customers.addService3ToCustomer(selectedCustomerNumber, paid);
-
                                     System.out.println("\n\n>>> Entry added. <<<");
                                 }
-
                                 else {
                                     System.out.println("\n\n>>> Invalid entry.  Paid at time of check-out?  Enter 'Y' for Yes and 'N' for No: ");
-
                                     yesNo = scnr.next().charAt(0);
                                 }
-
 
                                 // Add whitespace
                                 System.out.println();
                                 System.out.println();
-
-
-
                             }
-
                             else if (addServiceInput == 4) {
-
-
                                 System.out.println();  // Print whitespace between user input and output
 
                                 System.out.print(">>> Paid at time of check-out?  Enter 'Y' for Yes and 'N' for No: ");
@@ -895,54 +751,37 @@ public class MainProgram {
                                     paid = true;
                                     customers.addService4ToCustomer(selectedCustomerNumber, paid);
                                     System.out.println("\n\n>>> Entry added. <<<");
-
                                 }
-
                                 else if (yesNo == 'N' || yesNo == 'n') {
                                     paid = false;
                                     customers.addService4ToCustomer(selectedCustomerNumber, paid);
-
                                     System.out.println("\n\n>>> Entry added. <<<");
                                 }
-
                                 else {
                                     System.out.println("\n\n>>> Invalid entry.  Paid at time of check-out?  Enter 'Y' for Yes and 'N' for No: ");
-
                                     yesNo = scnr.next().charAt(0);
                                 }
-
 
                                 // Add whitespace
                                 System.out.println();
                                 System.out.println();
-
-
                             }
-
                             else {
                                 System.out.println(">>> Invalid selection.  Try again.\n\n ");
 
-// Print a few spaces
+                                // Print a few spaces
                                 System.out.println();
                                 System.out.println();
 
                                 serviceList();  // Call on serviceList method to print out service list again and wait for user input
 
                                 addServiceInput = scnr.nextInt();  // Look for input
-
                             }
-
-
-
                         }
-
-
                         else if (selection == 3) {
-
                             if (customers.getCountUnpaidServices(selectedCustomerNumber) == 0) {
                                 System.out.println("\n\n>>> Account is current.\n\n");
                             }
-
                             else {
                                 customers.printUnpaidServices(selectedCustomerNumber);
 
@@ -954,101 +793,71 @@ public class MainProgram {
 
                                 System.out.print("\n\n>>> Enter first name on credit card: ");  // Prompt user to enter the first name that is on the credit card
 
-
                                 scnr.nextLine();  // Clear the scanner to get ready for the next input of name (in case there is more than one word in either the first name or the last name)
-
 
                                 String firstNameCard = scnr.nextLine();  // Declare a new variable to store the first name and read user input from scanner
 
                                 boolean isLetter = true;  // Declare a new variable to store the boolean value that holds whether or not a String has all letters in it and set it to true
 
                                 for (int i = 0; i < firstNameCard.length(); ++i) {
-
                                     if (!Character.isLetter(firstNameCard.charAt(i)) && firstNameCard.charAt(i) != ' ') {
-
                                         isLetter = false;
                                     }
                                 }
 
                                 while (isLetter == false) {
-
                                     System.out.print("\n\n Invalid first name.  Type first name again: ");
-
                                     firstNameCard = scnr.nextLine();  // Read user input from scanner
-
                                     isLetter = true;  // Reset isLetter value
 
                                     for (int i = 0; i < firstNameCard.length(); ++i) {
-
                                         if (!Character.isLetter(firstNameCard.charAt(i)) && firstNameCard.charAt(i) != ' ') {
-
                                             isLetter = false;
                                         }
                                     }
                                 }
 
-
                                 System.out.print("\n\n>>> Enter last name on credit card: ");  // Prompt user to enter the last name that is on the credit card
-
 
                                 String lastNameCard = scnr.nextLine();  // Declare a new variable to store the last name and read user input from scanner
 
-
                                 for (int i = 0; i < lastNameCard.length(); ++i) {
-
                                     if (!Character.isLetter(lastNameCard.charAt(i)) && lastNameCard.charAt(i) == ' ') {
-
                                         isLetter = false;
                                     }
                                 }
 
                                 while (isLetter == false) {
-
                                     System.out.print("\n\n Invalid last name.  Type last name again: ");
-
                                     lastNameCard = scnr.nextLine();  // Read user input from scanner
-
                                     isLetter = true;  // Reset isLetter value
 
                                     for (int i = 0; i < lastNameCard.length(); ++i) {
-
                                         if (!Character.isLetter(lastNameCard.charAt(i)) && lastNameCard.charAt(i) != ' ') {
-
                                             isLetter = false;
                                         }
                                     }
                                 }
 
-
                                 System.out.print("\n\n>>> Enter 16-digit credit card number (no dashes or spaces): ");  // Prompt user to enter the 16-digit card number
-
 
                                 String cardNumber = scnr.next();  // Declare a new variable to store the card number and read user input from scanner.  Store as a String, so that character function can be called for validation
 
                                 boolean isDigit = true;  // Declare a new variable to store the boolean value that holds whether or not a String has all digits in it and set it to true
 
-
-
                                 for (int i = 0; i < cardNumber.length(); ++i) {
-
                                     if (!Character.isDigit(cardNumber.charAt(i)) || cardNumber.length() != 16) {
-
                                         isDigit = false;  // Set isDigit boolean variable to false either if there is a character that is not a digit OR if the cardNumber length is not equal to 16
                                     }
                                 }
 
                                 while (isDigit == false) {
-
                                     System.out.print("\n\n Invalid card number.  Type 16-digit card number again without any dashes or spaces: ");
-
                                     cardNumber = scnr.next();  // Read user input from scanner
-
                                     isDigit = true;  // Reset isDigit value
 
                                     for (int i = 0; i < cardNumber.length(); ++i) {
-
                                         if (!Character.isDigit(cardNumber.charAt(i)) || cardNumber.length() != 16) {
-
                                             isDigit = false;  // Set isDigit boolean variable to false either if there is a character that is not a digit OR if the cardNumber length is not equal to 16
                                         }
                                     }
@@ -1056,82 +865,44 @@ public class MainProgram {
 
                                 int n = 20;
 
-
-
-
-
                                 System.out.println("\n\n>>> Paid.  Thank you!");
-
                                 System.out.println("      Confirmation # " + createConfirmationNum() + "\n\n");
-
                             }
-
                         }
-
-
-
                         else {
                             System.out.println(">>> Invalid selection.  Try again.\n\n");
                         }
 
-
-
-
                         System.out.println("Customer Service Menu for " +   customers.getCustomerName(selectedCustomerNumber) + ":\n");
-
                         serviceMenu();  // Call serviceMenu method to output the service menu on the screen
-
                         selection = scnr.nextInt();  // Look for user input again
-
                     }
 
                     if(selection == 9) System.out.println();
-
-
                 }
-
             }
 
-
             else if (option == 4) {  // Execute only if user selects option 4
-
                 statisticsMenu();  // Call the method to display the statistics menu
-
                 int statsSelection = scnr.nextInt();  // Declare a variable to hold the selection from the user and set it to the input from the user
 
                 while(statsSelection != 9) {
-
                     if (statsSelection == 1) {
-
                         System.out.printf("\n\n\n>>> Total Amount of All Paid Services: $%.2f\n", customers.calcTotalPaid());
-
                     }
-
                     else if (statsSelection == 2) {
-
                         System.out.printf("\n\n\n>>> Outstanding Total of All Unpaid Services: $%.2f\n", customers.calcTotalUnpaid());
-
                     }
-
                     else {
                         System.out.print("\n\n>>> Invalid entry.");
-
                     }
 
-
                     statisticsMenu();  // Call the method to display the statistics menu
-
                     statsSelection = scnr.nextInt();  // Look for next input from the user
-
                 }
 
-
                 if(statsSelection == 9) System.out.println();
-
             }
-
-
-
             else {
                 System.out.println(">>> Invalid option number.  Try again.\n\n");
             }
@@ -1143,7 +914,6 @@ public class MainProgram {
             mainMenu();  // Call on mainMenu method to print out main menu once conditional statement executes
 
             option = scnr.nextInt();  // Look for input
-
         }
 
 
